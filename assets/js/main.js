@@ -12,7 +12,7 @@
 /* 2. sticky And Scroll UP */
     $(window).on('scroll', function () {
       var scroll = $(window).scrollTop();
-      if (scroll < 400) {
+      if (scroll < 103) {
         $(".header-sticky").removeClass("sticky-bar");
         $('#back-top').fadeOut(500);
       } else {
@@ -29,14 +29,22 @@
     });
   // navbar
 		$('#navigation a').on('click', function(e) {
-			e.preventDefault();
+      e.preventDefault();
+      var goal = $(this).attr('href');
 
-			var goal = $(this).attr('href');
-			console.log(goal);
-			
-			$('body, html').animate({
-				scrollTop: $(goal).offset().top
-			},600);
+      if($('.header-sticky').outerHeight() > 79){
+        $('body, html').animate({
+          scrollTop: $(goal).offset().top - 103
+        },600);
+      }
+      else {
+        $('body, html').animate({
+          scrollTop: $(goal).offset().top
+        },600);
+      }
+      
+      
+      console.log($(goal).offset().top);
 		});
   
 

@@ -2451,7 +2451,7 @@ hr {
 }
 .about-me {
 	position: relative;
-	margin-bottom: 150px;
+	/* margin-bottom: 150px; */
 }
 
 #bean {
